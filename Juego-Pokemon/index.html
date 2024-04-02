@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Juego de batalla de pokemón">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:image" content="https://mini-juego-pokemon.netlify.app/assets/portada-juego.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <link rel="stylesheet" href="css/pokemon.css">
+        <title>Pokémon Battle</title>
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="preload" as="font" crossorigin type="font/woff" href="fonts/Ka-Blam.woff">
+
+    </head>
+    <body>
+        <div id="leyendamodal" class="oculto">
+            <div class="modalContainer">
+                <div class="modalContent animate-movimiento">
+                    <span id="closeLeyenda" class="icoCloseModal">X</span>
+                    <h3>Leyenda</h3>
+                    <p> <span class="textoExtra"> Los Pokemon tienen uno o varios tipos según sus naturalezas elementales que les hacen fuertes o debiles contra otros tipos. </br></span>En este juego nos basamos en los tipos para determinar el vencedor, cada Pokemon gana a 2 y pierde contra 2 según su tipo.</p>
+                    <picture>
+                    
+                        <source srcset="assets/leyenda.png" media="(min-width: 600px)"> 
+                        <img src="assets/leyenda-movil.png" alt="leyenda">
+                        </picture>
+                    <div><button id="btnCerrar">Cerrar</button></div>
+                </div>
+                <div class="fondoleyenda"></div>
+            </div>
+        </div>
+        <div id="modal" class="oculto">
+            <div class="modalContainer">
+                <div class="modalContent animate-movimiento">
+                    <span id="closeModal" class="icoCloseModal">X</span>
+                    <h2>¡NUEVO RECORD!</h2>
+                    <div><label for="nombre">Introduce tu nombre</label></div>
+                    <div><input type="text" id="nombre"></div>
+                    <div><button id="btnRecord">Guardar</button></div>
+                </div>
+                <div class="fondoModal"></div>
+            </div>
+        </div>
+        <div id="wrapper">
+       <header><h1>POKEMON BATTLE</h1></header>
+        <div class="txtDatos">
+            <div><p class="text-total msj-total total1">0 - 0 </p></div>
+            <div><p id="victorias" class="text-mensajes">Victorias seguidas: 0</p>
+            </div>
+            <div><p id="record" class="text-mensajes"></p>  </div>
+                  
+        </div>
+        <div class="campo-batalla">
+            <div class="caja-batalla caja1">
+                <img id="destello-jugador" src="assets/destello.png" class="destello animate-movimiento oculto" alt="">
+                <img id="img-ataque-jugador" class="img-batalla" src="assets/inicio.png" alt=""></div>
+            <div class="caja-batalla cajatexto">
+                    <h2 id="msj-batalla" class="msj-batalla"><br></h2>
+            </div>
+            <div class="caja-batalla rotado caja2">
+                <img id="destello-pc" src="assets/destello.png" class="destello animate-movimiento oculto" alt="">
+                <img id="img-ataque-pc" class="img-batalla" src="assets/inicio2.png" alt=""></div>
+        </div>
+<div class="sel-pokemon">
+        <h3>Elije un Pokémon </h3>
+        <div class="sel-ataques">
+            <img id="btn-fuego" class="btn-ataques" src="assets/fuego-bot.png" alt="">
+            <img id="btn-bicho" class="btn-ataques" src="assets/bicho-bot.png" alt="">
+            <img id="btn-agua" class="btn-ataques" src="assets/agua-bot.png" alt="">
+            <img id="btn-planta" class="btn-ataques" src="assets/planta-bot.png" alt="">
+            <img id="btn-roca" class="btn-ataques" src="assets/roca-bot.png" alt="">
+
+        </div>
+    </div>
+    <div class="leyenda">
+        <h4>Leyenda</h4>
+    </div>
+</div>
+        <script src="js/app.js"></script>
+    </body>
+</html>

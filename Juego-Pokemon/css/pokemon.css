@@ -1,0 +1,466 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: Ka-Blam;
+    src: url(../fonts/Ka-Blam.woff);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #222222;
+    color: #ffffff;
+    background-image: url("../assets/fondoVS-mov.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 801px) {
+    body{
+        background-image: url("../assets/fondoVS.jpg");
+    }
+}
+
+#wrapper{
+    min-height: 100vh;
+    display: grid;
+    grid: 
+    "cabecera " auto
+    "datos" auto
+    "batalla" 1fr 
+    "seleccion" auto 
+    "leyenda" auto / 1fr;
+    justify-content:center;
+}
+
+header{
+grid-area: cabecera;
+padding: 20px 0;
+} 
+
+.sel-pokemon{
+    grid-area: seleccion;
+}
+
+h1{
+    font-family: "Ka-Blam", Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 80px;
+    text-align: center;
+width: 100%;
+padding-top: 20px;
+padding: 10px;
+}
+
+h2{
+    color: #ffcc03;
+    font-family: "Ka-Blam", Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 60px;
+
+}
+
+h3 {
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+.msj-batalla{
+    letter-spacing: 2px;
+    padding: 10px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+    h1{
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 50px;
+    }
+    h3 {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .msj-batalla{
+        padding: 5px;
+        padding-top: 10px;
+    }
+}
+
+
+.campo-batalla{
+    grid-area: batalla;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    display: grid;
+    grid: 
+    "caja1 cajatexto caja2" 1fr / 1fr 1fr 1fr;
+    justify-content: end;
+}
+@media (max-width: 800px) {
+    .campo-batalla{
+        grid: 
+        "cajatexto cajatexto" 0.5fr
+        "caja1 caja2" 1fr / 1fr 1fr;
+        justify-items: end;
+    }
+}
+
+.caja-batalla{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.caja1 {
+    grid-area: caja1;
+}
+.caja2 {
+    grid-area: caja2;
+}
+.cajatexto {
+    grid-area: cajatexto;
+}
+
+.destello{
+ filter:brightness(180%)
+}
+
+.oculto{
+    display: none;
+}
+
+.caja-batalla img{
+    width: 100%;
+    height: 100%;
+}
+
+.text-mensajes{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.text-total{
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}	
+
+.new-record{
+    color: #ffcc03;
+    font-weight: 900;
+}
+
+.img-batalla{
+object-fit: contain;
+min-width: 100%;
+height: 100%;
+padding: 10px;
+transition-duration: 500ms;
+position: absolute;
+}
+
+.img-batalla-win{
+    padding: 0px;
+}
+
+.img-batalla-lose{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%) brightness(50%);
+    padding: 15px;
+}
+
+.img-batalla-lose img{
+    opacity: 30%;
+}
+
+.rotado{
+    transform: scaleX(-1);
+  }
+
+.sel-ataques{
+    margin: 0 auto 20px auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.btn-ataques{
+    width: 100px;
+    border-radius: 50%;
+    margin: 0 20px;
+border: 2px solid #ffffff;
+}
+
+.btn-ataques:hover{
+    cursor: pointer;
+    border: 6px solid #ffcc03;
+}
+
+@media (max-width: 800px) {
+    .btn-ataques{
+        width: 70px;
+        border-radius: 50%;
+        margin: 0px 15px;
+    }
+    .btn-ataques:hover{
+        border: 4px solid #ffcc03;
+    }
+}
+
+.txtDatos{
+    grid-area: datos;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5px 30px 5px 30px;
+    background-color: #00000075;
+    border-top: #ffcc03 2px solid;
+    border-bottom: #ffcc03 2px solid;
+    gap: 20px;
+    width: 100%;
+}
+
+@media (max-width: 540px) {
+    .txtDatos{
+        grid-template-columns: 1fr;
+        gap: 5px;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    .total1{
+        display: none;
+    }
+}
+
+.fondoModal{
+    position: fixed;
+    background-image: radial-gradient(#ffe26ede 10%, #000000e8 70%);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.modalContainer {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 1000;
+        overflow: visible;
+    }
+    
+.modalContent {
+    text-align: center;
+        background-color: #000000;
+        margin: 100px auto;
+        padding: 20px;
+        border: 2px solid #ffcc03;
+        box-shadow: #00000020 0 5px 15px;
+        border-radius: 20px;
+        width: 80%;
+        max-width: 600px;
+    }
+
+.modalContent h2{
+        margin: 0 auto;
+    width: 80%;
+    }
+    
+.modalContent .icoCloseModal {
+        color: #aaaaaa;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+    }
+.modalContent .icoCloseModal:hover, .modalContent .icoCloseModal:focus {
+        color: #ffcc03;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modalContainer h2{
+    margin: 20px auto;
+}
+
+.modalContent button{
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: #ffcc03;
+    border: #ffcc03 2px solid;
+}
+
+.modalContent button:hover{
+    cursor: pointer;
+    background-color: #ffffff;
+}
+.modalContent input{
+    margin: 20px;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    border: #aaaaaa 2px solid;
+    background-color: #303030;
+}
+
+.leyenda{
+    grid-area: leyenda;
+    max-width:fit-content;
+    padding: 5px 40px;
+    margin: 0 5% 0 auto;
+    color: #000000;
+    background-color: #ffcc03;
+    border-radius: 20px 20px 0 0 ;
+}
+.leyenda:hover{
+    cursor: pointer;
+    background-color: #ffffff;
+
+}
+.leyenda h4 {
+    font-weight: 600;
+}
+
+.modalContent img {
+    padding: 20px;
+    max-height: 40vh;
+    margin: 0 auto;
+}
+
+@media (max-width: 540px) {
+    .modalContent img {
+        padding: 10px 0;
+        max-width: 70vw;
+        margin: 0 auto;
+    }
+    .textoExtra {
+        display: none;
+    }
+}
+
+.fondoleyenda{
+    position: fixed;
+    background-color: #000000e8;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@media (max-width: 540px) {
+        h1{
+            font-size: 40px;
+        }
+        h2 {
+            font-size: 50px;
+        }
+        .text-mensajes {
+            font-size: 16px;
+        }
+    }
+
+@keyframes ampliar {
+        0% {
+            transform: scale(10%);
+        }
+        100% {
+            transform: scale(100%);
+        }
+    }
+
+@keyframes ampliar-rebote {
+        0% {
+            transform: scale(10%);
+        }
+        70% {
+            transform: scale(180%);
+        }
+        100% {
+            transform: scale(100%);
+        }
+    }
+
+.animate-movimiento {
+        animation: ampliar 0.3s ease-out;
+    }
+
+.animate-movimiento-rebote {
+        animation: ampliar-rebote 0.3s ease-out;
+    }
+
+    @keyframes mov-left-min {
+        0% {
+            transform: translateX(-100%);
+        }
+        40% {
+            transform: translateX(+30%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes mov-left-med {
+        0% {
+            transform: translateX(-100%);
+        }
+        40% {
+            transform: translateX(+40%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes mov-left-max {
+        0% {
+            transform: translateX(-80%);
+        }
+        30% {
+            transform: translateX(+70%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .animate-left {
+        animation: mov-left-max 0.4s ease-out;
+    }
+
+    @media (max-width: 1200px) {
+        .animate-left {
+            animation: mov-left-med 0.3s ease-out;
+        }
+    }
+    @media (max-width: 600px) {
+        .animate-left {
+            animation: mov-left-min 0.3s ease-out;
+        }
+    }
